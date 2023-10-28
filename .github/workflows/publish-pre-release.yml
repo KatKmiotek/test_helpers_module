@@ -21,3 +21,8 @@ jobs:
 
       - name: Build project
         run: pnpm run build
+
+      - name: Publish package
+        run: pnpm publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_AUTH_TOKEN }}

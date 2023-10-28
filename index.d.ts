@@ -6,4 +6,4 @@ export function waitForResponse(
   url: string,
   statusCode: number,
 ): Promise<void>;
-export function printHello(): string;
+export function printHello(name: string): string;
