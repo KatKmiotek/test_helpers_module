@@ -15,9 +15,6 @@
     "import": "./dist/helpers.js",
     "require": "./dist/helpers.umd.cjs"
   },
-  "publishConfig": {
-    "KatKmiotek:registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
