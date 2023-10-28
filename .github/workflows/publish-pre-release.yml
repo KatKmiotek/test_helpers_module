@@ -19,11 +19,6 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.REGISTRY_AUTH_TOKEN }}" >> .npmrc
           chmod 0600 .npmrc
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-          registry-url: "https://npm.pkg.github.com/"
-
       - name: Cat
         run: cat ./.npmrc
 
@@ -37,4 +32,4 @@ jobs:
         run: pnpm run build
 
       - name: Publish package
-        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/
+        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
