@@ -31,6 +31,9 @@ jobs:
       - name: Build project
         run: pnpm run build
 
+      - run: git config --global user.name KatKmiotek
+      - run: git config --global user.email katarzyna.kmiotek@yahoo.com
+
       - name: Bump version - pre release
         run: pnpm version prerelease --preid=alpha
 
