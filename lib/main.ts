@@ -17,7 +17,13 @@ export function getCognitoToken(): string {
 
   const credentials = `${username}:${password}`;
 
-  const base64Credentials = btoa(credentials);
+  const textEncoder = new TextEncoder();
+  const data = textEncoder.encode(credentials);
+  const base64Credentials = Buffer.from(data).toString("base64");
 
   return base64Credentials;
+}
+
+export function printHello(name: string): string {
+  return `Hello ${name}!`;
 }
