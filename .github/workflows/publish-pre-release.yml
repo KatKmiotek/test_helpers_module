@@ -26,5 +26,6 @@ jobs:
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.REGISTRY_AUTH_TOKEN }}
+          registry: "https://npm.pkg.github.com"
           access: public
           dry-run: false
