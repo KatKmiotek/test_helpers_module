@@ -22,13 +22,12 @@ jobs:
       - name: Build project
         run: pnpm run build
 
+      - name: login to registry
+        run: |
+          echo "@KatKmiotek:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REGISTRY_AUTH_TOKEN }}" >> ~/.npmrc
+
       - name: Publish package
-        # uses: JS-DevTools/npm-publish@v3
-        # with:
-        #   token: ${{ secrets.REGISTRY_AUTH_TOKEN }}
-        #   registry: "KatKmiotek:https://npm.pkg.github.com"
-        #   access: public
-        #   dry-run: false
-        run: pnpm publish --access public --no-git-checks --registry=https://npm.pkg.github.com
+        run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_AUTH_TOKEN }}
