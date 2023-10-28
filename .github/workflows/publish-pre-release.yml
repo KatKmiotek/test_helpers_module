@@ -18,6 +18,9 @@ jobs:
           echo "@KatKmiotek:registry=https://npm.pkg.github.com/" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.REGISTRY_AUTH_TOKEN }}" >> ~/.npmrc
 
+      - name: Cat
+        run: cat ./.npmrc
+
       - name: Install pnpm
         run: npm install -g pnpm
 
