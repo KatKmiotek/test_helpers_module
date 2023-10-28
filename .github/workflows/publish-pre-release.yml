@@ -28,4 +28,4 @@ jobs:
           token: ${{ secrets.REGISTRY_AUTH_TOKEN }}
           registry: "https://npm.pkg.github.com"
           access: restricted
-          dry-run: true
+          dry-run: false
