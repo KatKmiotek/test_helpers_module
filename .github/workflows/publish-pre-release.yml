@@ -15,7 +15,6 @@ jobs:
 
       - name: Add .npmrc file
         run: |
-          echo "@KatKmiotek:registry=https://npm.pkg.github.com/" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.REGISTRY_AUTH_TOKEN }}" >> .npmrc
 
       - name: Cat
@@ -31,4 +30,4 @@ jobs:
         run: pnpm run build
 
       - name: Publish package
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
