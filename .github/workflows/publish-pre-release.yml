@@ -23,9 +23,12 @@ jobs:
         run: pnpm run build
 
       - name: Publish package
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.REGISTRY_AUTH_TOKEN }}
-          registry: "https://npm.pkg.github.com"
-          access: public
-          dry-run: false
+        # uses: JS-DevTools/npm-publish@v3
+        # with:
+        #   token: ${{ secrets.REGISTRY_AUTH_TOKEN }}
+        #   registry: "KatKmiotek:https://npm.pkg.github.com"
+        #   access: public
+        #   dry-run: false
+        run: pnpm publish --access public --no-git-checks --registry=https://npm.pkg.github.com
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REGISTRY_AUTH_TOKEN }}
