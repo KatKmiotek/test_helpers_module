@@ -2,6 +2,10 @@
   "name": "my-test-helpers",
   "private": false,
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KatKmiotek/test_helpers_module.git"
+  },
   "type": "module",
   "files": [
     "dist",
