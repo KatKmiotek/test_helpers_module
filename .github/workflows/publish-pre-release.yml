@@ -38,13 +38,8 @@ jobs:
           git config --global user.name KatKmiotek
           git config --global user.email katarzyna.kmiotek@yahoo.com
 
-      - uses: paulhatch/semantic-version@v5.3.0
-        id: version
-        with:
-          major_pattern: "(MAJOR)"
-          minor_pattern: "(MINOR)"
-          version_format: "${major}.${minor}.${patch}-alpha.${increment}"
-          search_commit_body: true
+      - name: Bump version - pre release
+        run: pnpm version prerelease --preid=alpha
 
       - name: Publish package
-        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek -tag ${{ steps.version.outputs.version }}
+        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
