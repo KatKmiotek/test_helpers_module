@@ -43,7 +43,7 @@ jobs:
         with:
           major_pattern: "(MAJOR)"
           minor_pattern: "(MINOR)"
-          version_format: "${major}.${minor}.${patch}.alpha.${{github.event.pull_request.number}}.${increment}"
+          version_format: "${major}.${minor}.${patch}.alpha.${increment}"
           search_commit_body: true
 
       - name: Publish package
