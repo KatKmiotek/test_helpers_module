@@ -33,5 +33,13 @@ jobs:
       - name: Build project
         run: pnpm run build
 
+      - name: Auth Git
+        run: |
+          git config --global user.name KatKmiotek
+          git config --global user.email katarzyna.kmiotek@yahoo.com
+
+      - name: Bump version - pre release
+        run: pnpm version minor
+
       - name: Publish package
         run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
