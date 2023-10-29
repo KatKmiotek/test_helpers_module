@@ -42,4 +42,4 @@ jobs:
         run: pnpm version prerelease --preid=alpha
 
       - name: Publish package
-        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
+        run: pnpm publish --force --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek
