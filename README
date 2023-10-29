@@ -1,0 +1,57 @@
+# My Test Helpers
+
+Module with my test helpers
+
+## Table of Contents
+
+- [My Test Helpers](#my-test-helpers)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+
+## Installation
+
+Describe how to install your module if it's not obvious. You might use a package manager like npm or yarn to install dependencies.
+
+```bash
+npm install @KatKmiotek/my-test-helpers
+```
+
+## Usage
+
+How to use the three methods provided by module:
+
+waitForResponse  
+Example:
+
+```ts
+import { Page } from "@KatKmiotek/my-test-helpers";
+import { waitForResponse } from "your-module-name";
+
+const page = /* Initialize your Playwright Page object */;
+const urlToMonitor = "https://example.com/api/data";
+const expectedStatusCode = 200;
+
+await waitForResponse(page, urlToMonitor, expectedStatusCode);
+```
+
+getCognitoToken  
+Example:
+
+```ts
+import { getCognitoToken } from "@KatKmiotek/my-test-helpers";
+
+const cognitoToken = getCognitoToken();
+console.log("Cognito Token:", cognitoToken);
+```
+
+printHello  
+Example:
+
+```ts
+import { printHello } from "@KatKmiotek/my-test-helpers";
+
+const name = "John";
+const greeting = printHello(name);
+console.log(greeting); // Output: "Hello John!"
+```

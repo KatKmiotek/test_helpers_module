@@ -1,0 +1,45 @@
+name: Build and publish - Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add .npmrc file
+        run: |
+          echo "@${{ github.repository_owner }}:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.REGISTRY_AUTH_TOKEN }}" >> .npmrc
+          chmod 0600 .npmrc
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install project dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm run test
+
+      - name: Build project
+        run: pnpm run build
+
+      - uses: paulhatch/semantic-version@v5.3.0
+        id: version
+        with:
+          major_pattern: "(MAJOR)"
+          minor_pattern: "(MINOR)"
+          version_format: "${major}.${minor}.${patch}"
+          search_commit_body: true
+
+      - name: Publish package
+        run: pnpm publish --no-git-checks --registry https://npm.pkg.github.com/KatKmiotek --tag ${{ steps.version.outputs.version }}
