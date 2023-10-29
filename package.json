@@ -1,7 +1,7 @@
 {
   "name": "@KatKmiotek/my-test-helpers",
   "private": false,
-  "version": "0.0.1",
+  "version": "1.0.1-alpha.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/KatKmiotek/test_helpers_module.git"
